@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+        <title>Pirate Adventure Game</title>
+	</head>
+	<body>
+        <script>
+/*Create Character*/
+
+var playerName = prompt("What be yer pirate name, matey?");
+  sidekick();
+
+/*Create Sidekick*/
+
+function sidekick(){
+  var animal = prompt("Every great pirate has a sidekick pet to keep them company! Which animal would ya like to have as yer sidekick? Parrot, turtle, monkey, or pig.").toLowerCase();
+ 
+    if(animal=="parrot"){
+      startGame();
+    }
+    else if(animal=="turtle"){
+      startGame();
+    }
+    else if(animal=="monkey"){
+      startGame();
+    }
+    else if(animal=="pig"){
+      startGame();
+    }
+    else{
+      alert("That is not a fit animal for a pirate! Try again!");
+      sidekick();
+  }
+}
+
+function startGame(){
+var confirmation = confirm("Excellent choice! Are you ready to collect some booty " + playerName + " ?");
+  
+if(confirmation){
+  beginAdventure();
+}
+else{
+  endAdventure();
+  }
+}
+
+/* Start Adventure */
+
+function beginAdventure(){
+  alert("Yo ho!!!! And a bottle of rum!! Let's begin!");
+  alert("There be an old tale amongst the pirates of a treasure which if obtained, the pirate would become the Pirate King! There has only been one record of a pirate able to retrieve this treasure but the son of a biscuit didn't want to pass on the treasure so he hid it once again!");
+  alert("The treasure be called the King Ruby! It can only be found during a full moon, so now be the perfect time! Before ye go off to find it, we need to get a ship!")
+  
+  /*Stage 1: Setting Sail*/
+                
+  var getShip =prompt("We have 3 options. Which path do ya choose? (commandeer, join a crew, or wait and buy)").toLowerCase();
+             
+  switch(getShip){
+    case "commandeer":
+      alert("Good choice matey! Let's go commandeer the ship! Arrggg!!!");
+      onShip();
+      break;
+    case "wait and buy":
+      alert("You're a pirate for goodness sakes! Don't try and be noble! Too late now, someone recognized you from a Wanted ad and turned you in.");
+      endAdventure();
+      break;
+    case "join a crew":
+      alert("That is an unfit choice for a future pirate king! The captain of the ship tied you up and threw you oversees. Can you blame him? There can only be one pirate king!");
+      endAdventure();
+      break;
+      default:
+      alert("I'll " + getShip + " you! Don't be smart! Try again!");
+      beginAdventure();
+    }
+}
+
+/*Storm*/
+
+function onShip(){
+  var storm =prompt("You have successfully commandeered the ship! Yo ho!! You have taken over the crew and are the new captain! As you're sailing, a storm begins to brew! It looks like a nasty one! There's an island nearby you could go to or there's also a whale right next to yer ship...who knows! It could help! What do you choose to do? (face the winds, go to mysterious island, jump on whale)").toLowerCase();
+
+
+switch(storm){
+    case "face the winds":
+      alert("A brave choice but unfortunately, the winds got the best of ya! Your ship has sunk.");
+      endAdventure();
+      break;
+    case "go to mysterious island":
+      alert("Good choice! We may be able to find the map on this island! And hopefully some food...");
+      mysteryIsland();
+      break;
+    case "jump on whale":
+      alert("You are an insane pirate! Good thing though, you're plan might not have worked if you weren't! You successfully jump on the whale and it seems to not mind. For now...");
+      whale();
+      break;
+      default:
+      alert("I'll " + storm + " you! Don't be smart! Try again!");
+      onShip();
+    }
+}
+
+/*Stage 2: Find the Map*/
+
+function mysteryIsland(){
+  var hunger = prompt("You reach the island and you and your crew be starving! The storm be traveling your way. It might be best to build shelter first but ye be very hungry! What do you choose to do matey? (build shelter, climb tree for coconuts, find the rum)").toLowerCase();
+
+switch(hunger){
+  case "build shelter":
+    alert("Ye be a smart pirate! The storm came and you and your crew be safe! After the storm passes you go digging around the island and find the treasure map!");
+    findMap();
+    break;
+  case "find the rum":
+    alert("Yo ho! Yo ho! A pirates life for me! You and your crew find the hidden rum on the island which is conveniently hidden in an underground shelter! Ye be safe from the storm! Also, the underground shelter also had the hidden map you need to find the treasure!");
+    findMap();
+    break;
+  case "climb tree for coconuts":
+    alert("Ye be a dumb pirate! The storm winds blew a coconut off and hit you right in the head and you fall off.");
+    endAdventure();
+    break;
+    default:
+    alert("I'll " + hunger + " you! Don't be smart! Try again!");
+    mysteryIsland();
+  }
+}
+
+function whale(){
+  var navigation =prompt("As ye be sittin' on the whale, all of a sudden you feel a quick jolt! The whale has begun to move! What do you do?? (send sidekick or stand up)");
+  
+  switch(navigation){
+    case "send sidekick":
+      alert("Your sidekick be a smart one! They are able to speak to the whale and not only tells the whale where to go but gets the needed information to find the map!");
+      findMap();
+      break;
+    case "stand up":
+      alert("You are not so lucky, pirate. All the jolts made you nervous and you stood up and slipped off...");
+      endAdventure();
+      break;
+    default:
+      alert("I'll " + whale + " you! Don't be smart! Try again!");
+  }
+}				
+/*Stage 3: Find Map*/
+      
+function findMap(){
+  var journey =prompt("Now that you have the map, you can either begin your journey or get supplies first.(begin journey or get supplies)").toLowerCase();
+
+
+switch(journey){
+    case "get supplies":
+      alert("Good thing you decided to get supplies! The ship is in dire need of it! There is a shop with all the food and supplies you'll need!");
+      getSupplies();
+      break;
+    case "begin journey":
+      alert("Silly pirate! You were already starving and you didn't think to get supplies! You are definitaly not fit to be Pirate King!");
+      endAdventure();
+      break;
+      default:
+      alert("I'll " + journey + " you! Don't be smart! Try again!");
+      findMap();
+    }
+}
+
+function getSupplies(){
+  var shop = prompt("There's a shopkeeper keeping eye on everything but other than that, the store is clear! How do you ge the supplies, you can either befriend the shopkeeper and hope he gives the supplies to you for free, send in your sidekick to steal the supplies or hit the shopkeeper with your rum bottle? (befriend shopkeeper, send sidekick, hit shopkeeper)").toLowerCase();
+
+  switch(shop){
+  case "hit shopkeeper":
+    alert("Ye be an excellent pirate! You got yer supplies and set sail again.")
+    findTreasure();
+    break;
+  case "send sidekick":
+    alert("Unfortunately, the shopkeeper saw the animal and would've left it alone if yer sidekick weren't so adorable! The shopkeeper steals him for himself and you become too heartbroken to continue.");
+    endAdventure();
+    break;
+  case "befriend shopkeeper":
+    alert("This shopkeeper wasn't looking for any pirate friends...they recognize you from a Wanted ad and turn you in.");
+    endAdventure();
+    break;
+    default:
+    alert("I'll " + shop + " you! Don't be smart! Try again!");
+    getSupplies();
+  }
+}
+
+/*Stage 4: Find Treasure*/
+
+function findTreasure(){
+  var sailing = prompt("As you're sailing, you see mermaids on one side and dolphins on the other! Should you go see the mermaids or dolphins? (mermaids or dolphins)").toLowerCase();
+    if(sailing=="mermaids"){
+      winTreasure();
+    }
+    else if(sailing=="dolphins"){
+      alert("As you are watching the dolphins, you get sea sick! You pass out and fall overboard.")
+      endAdventure();
+    }
+    else{
+      alert("I'll " + sailing + " you! Don't be smart! Try again!");
+      findTreasure();
+  }
+}
+  
+/*End Adventure*/
+
+function endAdventure(){
+  alert("Yargggg! Get out of here you scallywag!!");
+}
+
+function winTreasure(){
+  alert("Yo ho! Yo ho! A pirates life for you!! A life of a Pirate King that is!!! The mermaid held the treasure and was waiting for a worthy pirate to give it to! Congratulations sailor!")
+}
+        </script>
+	</body>
+</html>
